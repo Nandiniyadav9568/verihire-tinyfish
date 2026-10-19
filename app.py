@@ -11,7 +11,7 @@ from flask import Flask, request, jsonify, send_from_directory
 
 app = Flask(__name__, static_folder=None)
 app.config['MAX_CONTENT_LENGTH'] = 2048
-ROOT = os.path.join(os.path.dirname(__file__), 'public')
+ROOT = os.path.dirname(os.path.abspath(__file__))
 API_URL = 'https://api.search.tinyfish.ai'
 PUBLIC_ORIGIN = os.environ.get('PUBLIC_ORIGIN', '').rstrip('/')
 SITE_ACCESS_TOKEN = os.environ.get('SITE_ACCESS_TOKEN', '')

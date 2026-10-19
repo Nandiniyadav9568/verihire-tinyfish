@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: verihire
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 1 --threads 4 --timeout 40 --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /health
+    envVars:
+      - key: TINYFISH_API_KEY
+        sync: false
+      - key: SITE_ACCESS_TOKEN
+        generateValue: true

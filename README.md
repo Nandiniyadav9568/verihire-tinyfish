@@ -1,3 +1,5 @@
+# VeriHire + TinyFish Search
+
 ## Problem Statement
 
 Students frequently receive internship and placement-related emails that may contain fake job offers, recruitment-fee requests, suspicious links, or requests for sensitive personal information. It can be difficult to distinguish genuine opportunities from fraudulent ones.
@@ -18,6 +20,56 @@ By integrating the TinyFish Search API, VeriHire can also search for publicly av
 - Display available web research results and source links.
 - Encourage students to verify opportunities through official employer channels.
 
+- 
+## How TinyFish Search Works and Its Relevance to VeriHire
+
+### What is TinyFish?
+
+TinyFish Search API enables VeriHire to search the web for publicly available information related to a claimed employer and potential recruitment scams. It returns search results that can include titles, URLs, and snippets.
+
+### Search Phrases Used in VeriHire
+
+VeriHire uses meaningful search phrases to investigate internship and placement-related emails. For example:
+
+- **Company name + recruitment + internship scam** – Searches for reports or warnings associated with a company's recruitment process.
+- **Company name + careers + scam** – Looks for publicly available information about potentially fraudulent career opportunities.
+- **Company name + impersonation** – Searches for information about people or websites pretending to represent the claimed employer.
+- **Company domain + recruitment scam** – Helps investigate reports associated with the domain mentioned in an email.
+
+For example, if an email claims to represent a company named ABC Technologies, a research query could be:
+
+`ABC Technologies recruitment careers internship scam impersonation`
+
+These phrases are intended to find relevant public information. They do not automatically prove that a company or email is fraudulent.
+
+### Why Is This Relevant to VeriHire?
+
+Students may receive fake internship offers that use the names of real companies. Checking only the wording of an email may not reveal whether the opportunity has been reported as suspicious.
+
+TinyFish adds an external web-research layer to VeriHire by searching for relevant employer information and possible recruitment scam reports. This helps users review evidence beyond the email itself.
+
+### How the Search Results Are Used
+
+1. The user submits an internship or placement-related email.
+2. VeriHire's local analysis checks the email for suspicious warning signs.
+3. With the user's consent, the backend sends the claimed company name and/or sender domain to TinyFish as a search query.
+4. TinyFish returns available web-search results.
+5. VeriHire displays the source links and snippets in the Web Research section.
+6. The user reviews the information and independently verifies the opportunity.
+
+### How TinyFish Complements Risk Scoring
+
+VeriHire's local rules calculate the email risk score. TinyFish provides additional web research, which is displayed separately from that score.
+
+A search result is not proof of fraud, and the absence of negative results does not prove that an opportunity is genuine. Users should verify offers through official company websites and recruitment contacts.
+
+### Example Use Case
+
+Suppose a student receives an internship offer claiming to come from ABC Technologies. The email asks the student to pay a registration fee.
+
+VeriHire can flag the payment request as a warning sign. TinyFish can then search for publicly available information related to ABC Technologies, internship recruitment, scams, and impersonation. The student can review the search results and verify the offer through the company's official recruitment channels before taking action.
+
+This combination of email analysis and web research makes VeriHire more informative and relevant to its goal of helping students identify potentially fraudulent internship and placement-related emails.
 # VeriHire + TinyFish Search
 
 Your existing dark/lime responsive website, with a same-origin Python backend and live research inside the risk report.

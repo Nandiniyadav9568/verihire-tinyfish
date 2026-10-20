@@ -1,3 +1,23 @@
+## Problem Statement
+
+Students frequently receive internship and placement-related emails that may contain fake job offers, recruitment-fee requests, suspicious links, or requests for sensitive personal information. It can be difficult to distinguish genuine opportunities from fraudulent ones.
+
+There is a need for a simple solution that helps students identify suspicious emails and investigate the claimed employer using relevant information available on the web.
+
+## Proposed Solution
+
+VeriHire is an email scam detection system designed to help students analyze potentially fraudulent internship and placement-related emails. It identifies suspicious warning signs, generates a risk score, and displays a report with safety recommendations.
+
+By integrating the TinyFish Search API, VeriHire can also search for publicly available information about the claimed employer and possible recruitment scams. This provides additional context to help students investigate opportunities before trusting them.
+
+## Project Objectives
+
+- Identify suspicious indicators in internship and placement-related emails.
+- Generate a risk score and a readable risk report.
+- Use TinyFish to research the claimed employer and relevant scam reports.
+- Display available web research results and source links.
+- Encourage students to verify opportunities through official employer channels.
+
 # VeriHire + TinyFish Search
 
 Your existing dark/lime responsive website, with a same-origin Python backend and live research inside the risk report.
@@ -141,4 +161,6 @@ python -m playwright install chromium
 python test_browser.py
 ```
 
-Tests mock TinyFish or intercept research requests only in the test browser. Those fixtures are not used by the application and are never a production fallback. Real end-to-end provider behavior requires your real key and an enabled account. No real API key has been added, no live TinyFish search has been made, and the website has not been deployed by this deliverable.
+Automated tests use mocked TinyFish responses or intercepted research requests to test application behavior without making real API calls. These test fixtures are used only during testing and are not used as production fallbacks.
+
+The Flask backend is deployed on Render, and the `/health` endpoint confirms that the service is running. Real TinyFish research requires a valid API key, an enabled TinyFish account, and a successful API request. The live research feature should be tested separately to confirm that real search results are returned.
